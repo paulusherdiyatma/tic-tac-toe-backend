@@ -1,0 +1,49 @@
+{
+  "name": "player",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullName": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "joinDate": {
+      "type": "date",
+      "required": true
+    },
+    "point": {
+      "type": "number",
+      "required": true
+    },
+    "win": {
+      "type": "number",
+      "required": true
+    },
+    "draw": {
+      "type": "number",
+      "required": true
+    },
+    "defeat": {
+      "type": "number",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required" : true
+    },
+    "socketId": {
+      "type" : "string"
+    }
+
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

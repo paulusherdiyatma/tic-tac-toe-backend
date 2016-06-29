@@ -1,0 +1,38 @@
+{
+  "name": "game",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "createDate": {
+      "type": "date",
+      "required": true
+    },
+    "players": {
+      "type": [
+        "object"
+      ],
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "steps": {
+      "type": [
+        "array"
+      ]
+    },
+    "typeOfIcon" : {
+      "type" : "array"
+    },
+    "winner": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
