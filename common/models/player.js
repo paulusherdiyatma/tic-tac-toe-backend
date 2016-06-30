@@ -5,14 +5,21 @@ module.exports = function (Good) {
 module.exports = function (Player, socket) {
     if (typeof (socket) != 'undefined') {
 
+        socket.on('getProfile', function(id, fn){
+             Player.findOne({ where: { id : id } }, function (error, findResult) {
+                 fn(findResult);
+        });
+        });
+
         socket.on('createPlayer', function (username, fn) {
-            if (typeof (username) != 'undefined') {
+            if (username != '') {
                 Player.findOne({ where: { username: username } }, function (error, findResult) {
                     if (findResult == null) {
                         var newUser = {};
                         newUser.username = username;
                         newUser.joinDate = new Date();
                         newUser.point = 0;
+                        newUser.play = 0;
                         newUser.win = 0;
                         newUser.draw = 0;
                         newUser.socketId = socket.id;

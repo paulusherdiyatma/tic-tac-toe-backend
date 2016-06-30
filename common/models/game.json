@@ -24,6 +24,9 @@
         "array"
       ]
     },
+    "nextPlayer": {
+      "type" : "string"
+    },
     "typeOfIcon" : {
       "type" : "array"
     },

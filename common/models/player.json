@@ -21,6 +21,10 @@
       "type": "number",
       "required": true
     },
+    "play" : {
+      "type": "number",
+      "required": true
+    },
     "win": {
       "type": "number",
       "required": true

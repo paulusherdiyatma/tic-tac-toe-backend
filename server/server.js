@@ -31,13 +31,25 @@ boot(app, __dirname, function (err) {
     
 
     app.io.on('connection', function (socket) {
+      console.log("connect"+socket.client.request._query.id);
+      app.models.player.findById(socket.client.request._query.id, function(error, findResult){
+        if(findResult !=null){
+          findResult.status = "online";
+          findResult.save();
+        }
+      });
+
       player(app.models.player,socket);
       game(app.models.game, socket,app.io);
-      socket.on('connection', function(){
 
-      })
-      socket.on('disconnect', function () {
-        console.log('user disconnected');
+      socket.on('disconnect', function (data) {
+        console.log("disconnect:"+socket.client.request._query.id);
+        app.models.player.findById(socket.client.request._query.id, function(error, findResult){
+          if(findResult !=null){
+          findResult.status = "offline";
+          findResult.save();
+        }
+      });
       });
     })
   }
